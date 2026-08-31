@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="AssesmentAGIT.Api/AssesmentAGIT.Api.csproj" Id="2bec0818-95e7-445e-9137-094eac7cff47" />
+  <Project Path="AssesmentAGIT.Domain/AssesmentAGIT.Domain.csproj" Id="15d11ae8-76e2-40c2-bc17-664596e87eee" />
+  <Project Path="AssesmentAGIT.Infrastructure/AssesmentAGIT.Infrastructure.csproj" Id="f8df967c-6777-4bcc-a7d7-bc9afddb31dd" />
+  <Project Path="AssesmentAGIT.Tests/AssesmentAGIT.Tests.csproj" Id="775dd7e5-62b9-4824-b8ad-8961fbf5124a" />
+</Solution>
