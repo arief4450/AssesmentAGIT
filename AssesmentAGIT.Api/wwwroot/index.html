@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Planning Balancer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>Planning Balancer</h1>
+
+  <div class="tab-nav">
+    <button class="tab-btn active" data-tab="submit">Submit Plan</button>
+    <button class="tab-btn" data-tab="history">History</button>
+  </div>
+
+  <div id="tab-submit" class="tab-panel active">
+    <h2>Submit a Production Plan</h2>
+    <p>Enter daily production quantities. Inactive days should be set to 0.</p>
+
+    <form id="planningForm" novalidate>
+      <div class="form-group">
+        <label for="requestCode">Request Code</label>
+        <input type="text" id="requestCode">
+        <div id="err-requestCode" class="error-text"></div>
+      </div>
+
+      <div class="form-group">
+        <label>Daily Quantities</label>
+        <div id="slotsContainer"></div>
+        <div id="err-slots" class="error-text"></div>
+      </div>
+
+      <button type="submit" id="submitBtn">
+        <span class="btn-text">Balance & Save</span>
+        <span class="btn-spinner hidden">...</span>
+      </button>
+    </form>
+
+    <div id="errorPanel" class="error-text hidden" style="margin-top: 20px;">
+      <b id="errorMessage"></b>
+    </div>
+
+    <div id="resultPanel" class="hidden" style="margin-top: 20px;">
+      <h2>Result</h2>
+      <p><b>Request Code:</b> <span id="res-requestCode"></span></p>
+      <p><b>Candidate Token:</b> <span id="res-candidateToken"></span></p>
+      <p><b>Created At:</b> <span id="res-createdAt"></span></p>
+      <p><b>Status:</b> <span id="resultStatus"></span></p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Order</th>
+            <th>Day</th>
+            <th>Original</th>
+            <th>Balanced</th>
+            <th>Delta</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="resultTableBody"></tbody>
+      </table>
+
+      <p><b>Original Total:</b> <span id="res-originalTotal"></span></p>
+      <p><b>Balanced Total:</b> <span id="res-balancedTotal"></span></p>
+      <p><b>Validation:</b> <span id="res-totalValid"></span></p>
+    </div>
+  </div>
+
+  <div id="tab-history" class="tab-panel">
+    <h2>Submission History</h2>
+    <button id="refreshBtn">Refresh History</button>
+    <div id="historyContent" style="margin-top: 10px;"></div>
+
+    <div id="detailPanel" class="hidden" style="margin-top: 20px;">
+      <h2>Plan Detail</h2>
+      <button id="backToHistoryBtn">Close Detail</button>
+
+      <p><b>Request Code:</b> <span id="detail-requestCode"></span></p>
+      <p><b>Candidate Token:</b> <span id="detail-candidateToken"></span></p>
+      <p><b>Created At:</b> <span id="detail-createdAt"></span></p>
+      <p><b>Status:</b> <span id="detail-status"></span></p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Order</th>
+            <th>Day</th>
+            <th>Original</th>
+            <th>Balanced</th>
+            <th>Delta</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="detailTableBody"></tbody>
+      </table>
+
+      <p><b>Original Total:</b> <span id="detail-originalTotal"></span></p>
+      <p><b>Balanced Total:</b> <span id="detail-balancedTotal"></span></p>
+      <p><b>Validation:</b> <span id="detail-totalValid"></span></p>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
