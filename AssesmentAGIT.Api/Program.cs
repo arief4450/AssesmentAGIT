@@ -2,6 +2,7 @@ using AssesmentAGIT.Domain.Services;
 using AssesmentAGIT.Infrastructure;
 using AssesmentAGIT.Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
+using Swashbuckle.AspNetCore.SwaggerUI;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +19,11 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.UseSwaggerUI(options =>
+    {
+        options.SwaggerEndpoint("/openapi/v1.json", "Purchase Order Planning API");
+        options.RoutePrefix = "swagger";
+    });
 }
 
 app.UseHttpsRedirection();
